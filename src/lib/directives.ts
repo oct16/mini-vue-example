@@ -4,21 +4,21 @@ import { VM } from './vm'
 import { Watcher } from './watcher'
 
 export class Directive {
-    $data: object
-    $vm: VmConfig
+    public $data: object
+    public $vm: VmConfig
     constructor(vm: VmConfig) {
         this.$data = vm.data
         this.$vm = vm
     }
 
-    getVal(exp: string): any {
+    public getVal(exp: string): any {
         let val = this.$data
         const keys = exp.split('.')
         keys.forEach(key => (val = val[key]))
         return val
     }
 
-    textParser(node: HTMLElement, exp: string): void {
+    public textParser(node: HTMLElement, exp: string): void {
         const val = this.getVal(exp)
         node.textContent = (node.textContent as string).replace(mustacheExpressReg(), val)
 
@@ -33,7 +33,7 @@ export class Directive {
         )
     }
 
-    childComponentParser(node: HTMLElement): void {
+    public childComponentParser(node: HTMLElement): void {
         const tagName = node.tagName.toLowerCase().replace('-', '')
         const components = this.$vm.components
         if (components) {

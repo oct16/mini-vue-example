@@ -4,10 +4,10 @@ import { VmConfig } from './model'
 import { getClickMethod, isChildComponent, isElementNode, isMustacheExpressText, isTextNode } from './utils'
 
 export class Compiler extends BaseControl {
-    $data: any
-    $vm: VmConfig
+    public $data: any
+    public $vm: VmConfig
 
-    directive: Directive
+    public directive: Directive
     constructor(vm: VmConfig) {
         super(vm)
         this.$vm = vm

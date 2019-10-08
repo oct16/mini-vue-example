@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DIST_FILE_PATH = path.resolve(__dirname, '../dist/')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DIST_FILE_PATH = path.resolve(__dirname, '../dist/mini-vue')
 
 module.exports = {
     entry: path.join(__dirname, '../src/app.ts'),
@@ -10,10 +10,11 @@ module.exports = {
     },
     devtool: 'source-map',
     module: {
-        rules: [{
-                test: /\.tsx?$/,
+        rules: [
+            {
                 loader: 'ts-loader',
                 exclude: /node_modules/,
+                test: /\.tsx?$/
             },
             {
                 test: /\.styl$/,
@@ -29,22 +30,23 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg|woff|ttf)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
                     }
-                }]
+                ]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/component/index.pug',
-            filename: './index.html'
+            template: './index.html'
         })
     ],
     resolve: {
-        extensions: [".tsx", ".ts", ".js"]
-    },
-};
+        extensions: ['.tsx', '.ts', '.js']
+    }
+}

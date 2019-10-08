@@ -5,7 +5,7 @@ import { queueWatcher } from './schaduler'
 
 let uid = 0
 export class Watcher extends BaseControl {
-    id: number
+    public id: number
     private value: any
     private exp: string
     private $cb: any
@@ -19,24 +19,16 @@ export class Watcher extends BaseControl {
         Dep.target = null
     }
 
-    update(): void {
-        // sync method
-
-        // const newVal = this.getVal(this.exp)
-        // if (!newVal !== this.value) {
-        //     this.$cb.call(this.$vm, newVal)
-        // }
-
-        // async method
+    public update(): void {
         queueWatcher(this)
     }
 
-    run(): void {
+    public run(): void {
         const newVal = this.getVal(this.exp)
         this.$cb.call(this.$vm, newVal)
     }
 
-    getVal(exp: string): any {
+    public getVal(exp: string): any {
         let val = this.$data
         const keys = exp.split('.')
         keys.forEach(key => (val = val[key]))

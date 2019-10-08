@@ -27,7 +27,7 @@ const arrayMethods = Object.create(arrayPrototype)
     })
 })
 
-function def(obj: Object, key: string, val: any, enumerable?: boolean) {
+function def(obj: object, key: string, val: any, enumerable?: boolean) {
     Object.defineProperty(obj, key, {
         value: val,
         enumerable: !!enumerable,
@@ -37,6 +37,7 @@ function def(obj: Object, key: string, val: any, enumerable?: boolean) {
 }
 
 export class Observer {
+    // tslint:disable-next-line: variable-name
     public __ob__: Observer
     public dep: Dep
 
@@ -47,12 +48,12 @@ export class Observer {
         }
     }
 
-    walk(obj: object) {
+    public walk(obj: object) {
         const keys = Object.keys(obj)
         keys.forEach(key => this.defineReactive(obj, key))
     }
 
-    observeArray(array: object[]): void {
+    public observeArray(array: object[]): void {
         def(array, '__ob__', this, false)
         array.forEach(obj => {
             if (isObject(obj)) {
@@ -61,7 +62,7 @@ export class Observer {
         })
     }
 
-    defineReactive(obj: object, key: string): void {
+    public defineReactive(obj: object, key: string): void {
         let val = obj[key]
         const dep = new Dep()
         if (Array.isArray(val)) {

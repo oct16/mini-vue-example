@@ -5,8 +5,9 @@ function flushCallbacks() {
     pending = false
     const copies = callbacks.slice(0)
     callbacks.length = 0
-    for (let i = 0; i < copies.length; i++) {
-        copies[i]()
+
+    for (const i of copies) {
+        i()
     }
 }
 
@@ -15,7 +16,7 @@ const microTimerFunc = () => {
     p.then(flushCallbacks)
 }
 
-export function nextTick(cb?: Function, ctx?: Object) {
+export function nextTick(cb?: () => void, ctx?: object) {
     callbacks.push(() => {
         if (cb) {
             try {

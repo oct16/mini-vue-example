@@ -1,13 +1,13 @@
 import { VmConfig } from './model'
 
 export class BaseControl {
-    $vm: VmConfig
-    $el: HTMLElement
-    $template: string
-    $data: any
-    $components?: object
-    $computed?: { [key: string]: (...args) => any }
-    $methods?: { [key: string]: (...args) => any }
+    public $vm: VmConfig
+    public $el: HTMLElement
+    public $template: string
+    public $data: any
+    public $components?: object
+    public $computed?: { [key: string]: (...args) => any }
+    public $methods?: { [key: string]: (...args) => any }
 
     constructor(vm: VmConfig) {
         this.$vm = vm

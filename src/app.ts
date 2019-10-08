@@ -10,6 +10,10 @@ const template = `
             <button @@="updateCount">click++</button>
         </div>
         <app-child></app-child>
+        <hr />
+        <footer>
+            <a href="https://github.com/oct16/mini-vue-example">Repo in GitHub</a>
+        </footer>
     </div>
 `
 
