@@ -1,4 +1,4 @@
-### A Mini Vue Demo
+## A Mini Vue Demo ![travis-ci.org](https://travis-ci.org/oct16/mini-vue-example.svg?branch=master)
 
 
 [Preview Link](https://oct16.github.io/mini-vue/)
