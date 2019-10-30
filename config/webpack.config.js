@@ -21,8 +21,8 @@ module.exports = {
                 loader: 'style-loader!css-loader!postcss-loader!stylus-loader'
             },
             {
-                test: /\.pug$/,
-                use: ['pug-loader']
+                test: /\.html$/,
+                use: ['underscore-template-loader']
             },
             {
                 test: /\.css$/,
@@ -43,7 +43,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './index.html',
+            env: process.env
         })
     ],
     resolve: {

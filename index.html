@@ -10,6 +10,20 @@
 
 <body>
     <div id="app"></div>
+
+    <% if (htmlWebpackPlugin.options.env.NODE_ENV === 'production') { %>
+        <script defer="defer" src="https://www.googletagmanager.com/gtag/js?id=UA-151180797-1"></script>
+        <script>
+            // <!-- Global site tag (gtag.js) - Google Analytics -->
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'UA-151180797-1');
+        </script>
+    <% } %>
 </body>
 
 </html>

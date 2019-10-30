@@ -8,7 +8,7 @@
     },
     "scripts": {
         "start": "webpack-dev-server --mode development --progress --config ./config/webpack.config.dev.js",
-        "build": "webpack --mode production --progress --config ./config/webpack.config.prod.js",
+        "build": "NODE_ENV=production webpack --mode production --progress --config ./config/webpack.config.prod.js",
         "test": "mocha-webpack --webpack-config config/webpack.config.test.js src/test/**/*.ts",
         "analyze": "webpack --mode production --progress --config ./config/webpack.config.analyzer.js && cd webpack-bundle-analyzer dist/stats.json"
     },
@@ -17,7 +17,9 @@
     ],
     "author": "oct16",
     "license": "MIT",
-    "dependencies": {},
+    "dependencies": {
+        "underscore-template-loader": "^1.0.0"
+    },
     "devDependencies": {
         "@types/mocha": "^5.2.5",
         "@types/node": "^10.12.19",
